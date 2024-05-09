@@ -21,9 +21,8 @@ const Slides = () => {
 
   const slideshow = () => {
     const result =[];
-    return (
-      <></>
-    )
+    result.psuh(<div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>);
+    return {result}
   }
 
   return (

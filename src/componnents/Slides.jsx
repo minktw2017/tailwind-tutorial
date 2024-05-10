@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useSceenSize from '../hooks/useScreenSize';
 
 const Slides = () => {
 
   const screenSize = useSceenSize();
   const [count, setCount] = useState(0);
+  const [slideShow, setSlideShow] = useState([]);
 
   const slides = [
     {url: '/slide1.jpg', des: "slide1"},
@@ -19,11 +20,29 @@ const Slides = () => {
     console.log(window.innerWidth);
   };
 
-  const slideshow = () => {
-    const result =[];
-    result.psuh(<div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>);
-    return {result}
-  }
+  useEffect(() => {
+    if (screenSize.imgNum == 3) {
+      setSlideShow([
+        <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>,
+        <div className='w-1/3'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>,
+        <div className='w-1/3'><img src={slides[count+2].url} alt={slides[count+2].des} /></div>
+      ])
+    } else if (screenSize.imgNum == 2) {
+      setSlideShow([
+        <div className='w-1/2'><img src={slides[count].url} alt={slides[count].des} /></div>,
+        <div className='w-1/2'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>
+      ])
+    } else {
+      setSlideShow([
+        <div className='w-full'><img src={slides[count].url} alt={slides[count].des} /></div>
+      ])
+    }
+  }, [screenSize])
+  // const slideshow = () => {
+  //   const result =[];
+  //   result.push(<div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>);
+  //   return {result}
+  // }
 
   return (
     <div className='max-w-[1200px] mx-auto mb-4 px-1'>
@@ -35,8 +54,9 @@ const Slides = () => {
         <div><img className='max-w-[400px]' src={slides[4].url} alt={slides[4].des} /></div> */}
         {/* <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>
         <div className='w-1/3'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>
-        <div className='w-1/3'><img src={slides[count+2].url} alt={slides[count+2].des} /></div> */}
-        {slideshow()}
+        <div className='w-1/3'><img src={slides[count+2].url} alt={slides[count+2].des} /></div>
+        <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div> */}
+        {slideShow}
       </div>
 
       <div className='btn bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded flex justify-center mx-auto mb-4 w-2/3'

@@ -11,9 +11,9 @@ const useSceenSize = () => {
     // } else {
     //   setImgNum(3);
     // };
-    if (width < 400) {
+    if (width < 432) {
       num = 1;
-    } else if (width >= 400 && width < 1200) {
+    } else if (width >= 432 && width < 1200) {
       num = 2;
     } else {
       num = 3;

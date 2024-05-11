@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useSceenSize from '../hooks/useScreenSize';
+import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
 const Slides = () => {
 

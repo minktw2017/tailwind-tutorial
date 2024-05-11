@@ -8,11 +8,11 @@ const Slides = () => {
   const [slideShow, setSlideShow] = useState([]);
 
   const slides = [
-    {url: '/slide1.jpg', des: "slide1"},
-    {url: '/slide2.jpg', des: "slide2"},
-    {url: '/slide3.jpg', des: "slide3"},
-    {url: '/slide4.jpg', des: "slide4"},
-    {url: '/slide5.jpg', des: "slide5"},
+    { url: '/slide1.jpg', des: "slide1" },
+    { url: '/slide2.jpg', des: "slide2" },
+    { url: '/slide3.jpg', des: "slide3" },
+    { url: '/slide4.jpg', des: "slide4" },
+    { url: '/slide5.jpg', des: "slide5" },
   ];
 
   const handleClick = () => {
@@ -24,13 +24,13 @@ const Slides = () => {
     if (screenSize.imgNum == 3) {
       setSlideShow([
         <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>,
-        <div className='w-1/3'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>,
-        <div className='w-1/3'><img src={slides[count+2].url} alt={slides[count+2].des} /></div>
+        <div className='w-1/3'><img src={slides[count + 1].url} alt={slides[count + 1].des} /></div>,
+        <div className='w-1/3'><img src={slides[count + 2].url} alt={slides[count + 2].des} /></div>
       ])
     } else if (screenSize.imgNum == 2) {
       setSlideShow([
         <div className='w-1/2'><img src={slides[count].url} alt={slides[count].des} /></div>,
-        <div className='w-1/2'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>
+        <div className='w-1/2'><img src={slides[count + 1].url} alt={slides[count + 1].des} /></div>
       ])
     } else {
       setSlideShow([

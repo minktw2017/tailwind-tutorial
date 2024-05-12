@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import useSceenSize from '../hooks/useScreenSize';
-import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
+import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
 
 const Slides = () => {
 
@@ -16,59 +16,53 @@ const Slides = () => {
     { url: '/slide5.jpg', des: "slide5" },
   ];
 
-  const handleClick = () => {
-    console.log(slides.length)
-    console.log(window.innerWidth);
-  };
+  const calIndex = (index, level) => {
+    return index + level > slides.length ? index + index + level - slides.length : index + level
+  }
+
+  const handlePrev = (display) => {
+    console.log('Prev', display, slides.length);
+  }
+
+  const handleNext = (display) => {
+    console.log('Next', display, slides.length);
+  }
 
   useEffect(() => {
     if (screenSize.imgNum == 3) {
       setSlideShow([
         <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>,
-        <div className='w-1/3'><img src={slides[count + 1].url} alt={slides[count + 1].des} /></div>,
-        <div className='w-1/3'><img src={slides[count + 2].url} alt={slides[count + 2].des} /></div>
+        <div className='w-1/3'><img src={slides[calIndex(count, 1)].url} alt={slides[calIndex(count, 1)].des} /></div>,
+        <div className='w-1/3'><img src={slides[calIndex(count, 2)].url} alt={slides[calIndex(count, 2)].des} /></div>,
+        <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(3)} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(3)} />
+        </div>
       ])
     } else if (screenSize.imgNum == 2) {
       setSlideShow([
         <div className='w-1/2'><img src={slides[count].url} alt={slides[count].des} /></div>,
-        <div className='w-1/2'><img src={slides[count + 1].url} alt={slides[count + 1].des} /></div>
+        <div className='w-1/2'><img src={slides[calIndex(count, 1)].url} alt={slides[calIndex(count, 1)].des} /></div>,
+        <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(2)} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(2)} />
+        </div>
       ])
     } else {
       setSlideShow([
-        <div className='w-full'><img src={slides[count].url} alt={slides[count].des} /></div>
+        <div className='w-full'><img src={slides[count].url} alt={slides[count].des} /></div>,
+        <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(1)} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(1)} />
+        </div>
       ])
     }
   }, [screenSize])
-  // const slideshow = () => {
-  //   const result =[];
-  //   result.push(<div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>);
-  //   return {result}
-  // }
 
   return (
     <div className='max-w-[1200px] mx-auto mb-4 px-1'>
-      <div className='max-w-[1500px] flex justify-start items-center gap-1 overflow-x-hidden mb-4 rounded-2xl'>
-        {/* <div><img className='max-w-[400px]' src={slides[0].url} alt={slides[0].des} /></div>
-        <div><img className='max-w-[400px]' src={slides[1].url} alt={slides[1].des} /></div>
-        <div><img className='max-w-[400px]' src={slides[2].url} alt={slides[2].des} /></div>
-        <div><img className='max-w-[400px]' src={slides[3].url} alt={slides[3].des} /></div>
-        <div><img className='max-w-[400px]' src={slides[4].url} alt={slides[4].des} /></div> */}
-        {/* <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div>
-        <div className='w-1/3'><img src={slides[count+1].url} alt={slides[count+1].des} /></div>
-        <div className='w-1/3'><img src={slides[count+2].url} alt={slides[count+2].des} /></div>
-        <div className='w-1/3'><img src={slides[count].url} alt={slides[count].des} /></div> */}
+      <div className='max-w-[1500px] flex justify-start items-center gap-1 overflow-x-hidden mb-4 rounded-2xl relative'>
         {slideShow}
-      </div>
-
-      <div className='btn bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded flex justify-center mx-auto mb-4 w-2/3'
-        onClick={handleClick}>
-        Button</div>
-
-      <div className='w-1/3 border flex justify-start items-center flex-col'>
-        <h1>Screen Size Detection with React Hook</h1>
-        <p>Width: {screenSize.width}</p>
-        <p>Height: {screenSize.height}</p>
-        <p>Numbers of image: {screenSize.imgNum}</p>
       </div>
     </div>
   )

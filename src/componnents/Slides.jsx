@@ -17,15 +17,19 @@ const Slides = () => {
   ];
 
   const calIndex = (index, level) => {
-    return index + level > slides.length ? index + index + level - slides.length : index + level
+    return (index + level > slides.length ? index + index + level - slides.length : index + level)
   }
 
-  const handlePrev = (display) => {
-    console.log('Prev', display, slides.length);
+  const handlePrev = () => {
+    console.log("Prev")
+    const newIndex = count + 1 > slides.length ? 0 : count + 1
+    setCount(newIndex)
   }
 
-  const handleNext = (display) => {
-    console.log('Next', display, slides.length);
+  const handleNext = () => {
+    console.log("Next")
+    const newIndex = count - 1 < 0 ? slides.length : count - 1
+    setCount(newIndex)
   }
 
   useEffect(() => {
@@ -35,8 +39,8 @@ const Slides = () => {
         <div className='w-1/3'><img src={slides[calIndex(count, 1)].url} alt={slides[calIndex(count, 1)].des} /></div>,
         <div className='w-1/3'><img src={slides[calIndex(count, 2)].url} alt={slides[calIndex(count, 2)].des} /></div>,
         <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
-          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(3)} />
-          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(3)} />
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={handlePrev} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={handleNext} />
         </div>
       ])
     } else if (screenSize.imgNum == 2) {
@@ -44,20 +48,20 @@ const Slides = () => {
         <div className='w-1/2'><img src={slides[count].url} alt={slides[count].des} /></div>,
         <div className='w-1/2'><img src={slides[calIndex(count, 1)].url} alt={slides[calIndex(count, 1)].des} /></div>,
         <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
-          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(2)} />
-          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(2)} />
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={handlePrev} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={handleNext} />
         </div>
       ])
     } else {
       setSlideShow([
         <div className='w-full'><img src={slides[count].url} alt={slides[count].des} /></div>,
         <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
-          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={() => handlePrev(1)} />
-          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={() => handleNext(1)} />
+          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={handlePrev} />
+          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={handleNext} />
         </div>
       ])
     }
-  }, [screenSize])
+  }, [screenSize, count])
 
   return (
     <div className='max-w-[1200px] mx-auto mb-4 px-1'>

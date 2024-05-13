@@ -17,19 +17,23 @@ const Slides = () => {
   ];
 
   const calIndex = (index, level) => {
-    return (index + level > slides.length ? index + index + level - slides.length : index + level)
+    const newIndex = (index + level) >= slides.length ? (index + level - slides.length) : (index + level)
+    return newIndex
   }
 
   const handlePrev = () => {
     console.log("Prev")
-    const newIndex = count + 1 > slides.length ? 0 : count + 1
+    const newIndex = count - 1 < 0 ? slides.length - 1 : count - 1
     setCount(newIndex)
+    console.log(newIndex)
   }
 
   const handleNext = () => {
     console.log("Next")
-    const newIndex = count - 1 < 0 ? slides.length : count - 1
+    // const newIndex = count - 1 < 0 ? slides.length : count - 1
+    const newIndex = (count + 1) > slides.length ? 0 : count + 1
     setCount(newIndex)
+    console.log(newIndex)
   }
 
   useEffect(() => {

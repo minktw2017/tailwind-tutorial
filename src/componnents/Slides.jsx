@@ -9,32 +9,32 @@ const Slides = () => {
   const [slideShow, setSlideShow] = useState([]);
 
   const slides = [
+    { url: '/slide0.jpg', des: "slide0" },
     { url: '/slide1.jpg', des: "slide1" },
     { url: '/slide2.jpg', des: "slide2" },
     { url: '/slide3.jpg', des: "slide3" },
     { url: '/slide4.jpg', des: "slide4" },
     { url: '/slide5.jpg', des: "slide5" },
+    { url: '/slide6.jpg', des: "slide6" },
+    { url: '/slide7.jpg', des: "slide7" },
+    { url: '/slide8.jpg', des: "slide8" },
+    { url: '/slide9.jpg', des: "slide9" },
   ];
 
   const calIndex = (index, level) => {
-    const newIndex = (index + level) >= slides.length ? (index + level - slides.length) : (index + level)
-    return newIndex
-  }
+    const newIndex = (index + level) > slides.length - 1 ? (index + level - slides.length) : (index + level);
+    return newIndex;
+  };
 
   const handlePrev = () => {
-    console.log("Prev")
-    const newIndex = count - 1 < 0 ? slides.length - 1 : count - 1
-    setCount(newIndex)
-    console.log(newIndex)
-  }
+    const newIndex = count - 1 < 0 ? slides.length - 1 : count - 1;
+    setCount(newIndex);
+  };
 
   const handleNext = () => {
-    console.log("Next")
-    // const newIndex = count - 1 < 0 ? slides.length : count - 1
-    const newIndex = (count + 1) > slides.length ? 0 : count + 1
-    setCount(newIndex)
-    console.log(newIndex)
-  }
+    const newIndex = (count + 1) >= slides.length ? 0 : count + 1;
+    setCount(newIndex);
+  };
 
   useEffect(() => {
     if (screenSize.imgNum == 3) {
@@ -65,7 +65,7 @@ const Slides = () => {
         </div>
       ])
     }
-  }, [screenSize, count])
+  }, [screenSize, count]);
 
   return (
     <div className='max-w-[1200px] mx-auto mb-4 px-1'>

@@ -43,8 +43,8 @@ const Slides = () => {
         <div className='w-1/3'><img src={slides[calIndex(count, 1)].url} alt={slides[calIndex(count, 1)].des} /></div>,
         <div className='w-1/3'><img src={slides[calIndex(count, 2)].url} alt={slides[calIndex(count, 2)].des} /></div>,
         <div className='w-full p-4 flex justify-between items-center absolute top-1/2 left-0 opacity-50'>
-          <CgChevronLeft className='cursor-pointer' size={60} color="#fff" onClick={handlePrev} />
-          <CgChevronRight className='cursor-pointer' size={60} color="#fff" onClick={handleNext} />
+          <CgChevronLeft size={60} className='cursor-pointer custom' onClick={handlePrev} />
+          <CgChevronRight size={60} color="#fff" className='cursor-pointer' onClick={handleNext} />
         </div>
       ])
     } else if (screenSize.imgNum == 2) {

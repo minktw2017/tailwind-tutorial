@@ -3,9 +3,9 @@
 @import "tailwindcss/components";
 
 .custom {
-  color: red;
+  color: #EEF7FF;
 }
 
 .custom:hover {
-  color: #fff;
+  color: #4D869C;
 }

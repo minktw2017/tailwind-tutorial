@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+
+.custom {
+  color: #EEF7FF;
+}
+
+.custom:hover {
+  color: #4D869C;
+}
+
+.aniFadeIn {
+  animation-name: aniFadeIn;
+  animation-duration: 3s;
+}
+
+@keyframes aniFadeIn {
+  from {
+    margin-left: 100px;
+    opacity: 0;
+  }
+
+  to {
+    margin: 0;
+    opacity: 1;
+  }
+}

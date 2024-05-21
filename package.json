@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && sudo cp -r dist/* /usr/share/nginx/html/doban",
+    "build": "vite build && sudo cp -r dist/* /var/www/doban",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

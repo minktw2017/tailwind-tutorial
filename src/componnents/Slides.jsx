@@ -69,7 +69,7 @@ const Slides = () => {
 
   return (
     <div className='max-w-[1200px] mx-auto mb-4 px-1'>
-      <div className='max-w-[1200px] flex justify-start items-center gap-1 overflow-x-hidden mb-4 rounded-2xl relative'>
+      <div className='max-w-[1200px] flex justify-start items-center gap-1 overflow-x-hidden mb-4 roundeds relative'>
         {slideShow}
       </div>
     </div>

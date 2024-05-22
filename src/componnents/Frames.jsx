@@ -14,7 +14,10 @@ const Frames = () => {
   ]
 
   const frameList = frames.map(frame => 
-    <div className='aspect-video' key={frame.id}>
+    <div className='aspect-video
+                    sm:max-[640px]' 
+         key={frame.id}
+    >
       <iframe
         className='w-full h-full'
         src={frame.src}
@@ -27,7 +30,11 @@ const Frames = () => {
     )
 
   return (
-    <div className='w-[1200px] mx-auto mb-4 grid rounded-2xl overflow-hidden lg:grid-cols-4 gap-1 md:grid-cols-2 sm:grid-cols-1'>
+    <div className='w-[1200px] mx-auto mb-4 px-1 
+                    grid rounded overflow-x-hidden 
+                    lg:grid-cols-4 gap-1 
+                    md:grid-cols-2 
+                    sm:grid-cols-1'>
       {frameList}
     </div>
   )

@@ -10,8 +10,8 @@ const Animation = () => {
         w-full
         h-[calc(100vh-76px)]
         mx-auto
-        flex 
-        justify-center 
+        flex
+        justify-center
         items-center
         lg:max-w-[1200px]
         ">

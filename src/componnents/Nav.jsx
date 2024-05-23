@@ -9,14 +9,14 @@ const Nav = () => {
           bg-slate-600 
           max-w-[1200px] 
           h-[60px] 
-          mx-[calc((100vw-1184px)*0.5)] 
+          mx-auto
           flex 
           justify-center 
           items-center
         ">
-          <div className="px-2">I am low1</div>
-          <div className="px-2">I am low2</div>
-          <div className="px-2">I am low3</div>
+          <div>I am low1</div>
+          <div>I am low2</div>
+          <div>I am low3</div>
         </div>
       </div>
     </>

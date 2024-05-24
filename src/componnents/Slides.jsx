@@ -136,7 +136,7 @@ const Slides = () => {
         className="
         max-w-full
         mx-2
-        rounded-xl
+        rounded-lg
         overflow-x-hidden
         flex
         justify-start

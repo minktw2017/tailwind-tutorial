@@ -3,11 +3,20 @@
 @import "tailwindcss/components";
 
 .custom {
-  color: #EEF7FF;
+  color: #eef7ff;
 }
 
 .custom:hover {
-  color: #4D869C;
+  color: #4d869c;
+}
+
+@layer components {
+  .outter {
+    @apply w-full;
+    @apply mx-auto;
+    @apply mb-4;
+    @apply lg:max-w-[1200px];
+  }
 }
 
 .aniFadeIn {

@@ -2,13 +2,15 @@
   "name": "dobanhome",
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && sudo cp -r dist/* /var/www/doban",
+    "build": "yarn exec echo Keep it real! You can make it!! && vite build && sudo cp -r dist/* /var/www/doban",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.3",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",

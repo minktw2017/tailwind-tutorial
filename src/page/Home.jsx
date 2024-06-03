@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../componnents/Nav";
 // import Slides from "../componnents/Slides";
 // import Frames from "../componnents/Frames";
-import Form2 from "../componnents/Form2";
+import Form from "../componnents/Form";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <Nav />
       {/* <Slides />
       <Frames /> */}
-      <Form2 />
+      <Form />
     </>
   );
 };

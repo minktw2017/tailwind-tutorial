@@ -2,73 +2,100 @@ import { useState } from "react";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    "entry.621284340": "", // name
-    "entry.1213793690": "", // Line or Tel
-    "entry.1410310201": "", // Content
+    "entry.1607394707": "", // name
+    "entry.1975219412": "", // Email
+    "entry.1087552538": "", // Line or Tel
+    "entry.547379319": "", // Content
   });
 
+  const [submited, setSubmited] = useState(false);
+
   async function handleSubmit(e) {
-    let url = `https://docs.google.com/forms/d/e/1FAIpQLSdBOT8r9IE_DxGbIVJ6AR6v6qTbEFIO9dxhfhu_T5zww2oWNA/formResponse?621284340=${formData["621284340"]}&entry.1213793690=${formData["entry.1213793690"]}&entry.1410310201=${formData["entry.1410310201"]}`;
+    e.preventDefault();
+    let url = `https://docs.google.com/forms/d/e/1FAIpQLSfZtc0eK6FaNDWHuAWiUXAqHlCe7SizxKCul715S2x4HK96eQ/formResponse?entry.1607394707=${formData["entry.1607394707"]}&entry.1975219412=${formData["entry.1975219412"]}&entry.1087552538=${formData["entry.1087552538"]}&entry.547379319=${formData["entry.547379319"]}`;
 
     const res = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencode",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
+      mode: "no-cors",
     });
+
+    setSubmited(true);
   }
 
-  const handleInputData = (input) => (e) => {
-    const { value } = e.target;
+  const handleInputData = (e) => {
+    const { name, value } = e.target;
 
     setFormData((prevState) => ({
       ...prevState,
-      [input]: value,
+      [name]: value,
     }));
   };
 
-  return (
+  return submited ? (
+    <div className="max-w-[1200px] min-h-[120px] mx-auto">
+      <p className="mx-2">表單已送出，我們將盡快與您連絡。</p>
+    </div>
+  ) : (
     <div className="max-w-[1200px] min-h-[120px] mx-auto">
       <form
         onSubmit={handleSubmit}
         target="_self">
-        <fieldset>
-          <label htmlFor="entry.621284340">姓名</label>
+        <fieldset className="mx-2">
+          <label htmlFor="entry.1607394707">您的姓名</label>
           <input
             type="text"
-            name="entry.621284340"
-            className="shadow appearance-none border rounded w-full py-2  px-3 text-gray-700 leading-tight z-50 focus:outline-none focus:shadow-outline"
+            name="entry.1607394707"
+            className="formInput"
             required="true"
-            onChange={handleInputData("entry.621284340")}
-            value={formData["entry.621284340"]}
+            onChange={handleInputData}
+            value={formData["entry.1607394707"]}
             autoComplete={false}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="entry.1213793690">電話或Line ID</label>
+        <fieldset className="mx-2">
+          <label htmlFor="entry.1975219412">電子郵件</label>
           <input
             type="text"
-            name="entry.1213793690"
-            className="shadow appearance-none border rounded w-full py-2  px-3 text-gray-700 leading-tight z-50 focus:outline-none focus:shadow-outline"
+            name="entry.1975219412"
+            className="formInput"
             required="true"
-            onChange={handleInputData("entry.1213793690")}
-            value={formData["entry.1213793690"]}
+            onChange={handleInputData}
+            value={formData["entry.1975219412"]}
             autoComplete={false}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="entry.1410310201">合作方式或提案內容</label>
+        <fieldset className="mx-2">
+          <label htmlFor="entry.1087552538">電話或Line ID</label>
           <input
             type="text"
-            name="entry.1410310201"
-            className="shadow appearance-none border rounded w-full py-2  px-3 text-gray-700 leading-tight z-50 focus:outline-none focus:shadow-outline"
+            name="entry.1087552538"
+            className="formInput"
             required="true"
-            onChange={handleInputData("entry.1410310201")}
-            value={formData["entry.1410310201"]}
+            onChange={handleInputData}
+            value={formData["entry.1087552538"]}
             autoComplete={false}
           />
         </fieldset>
-        <button type="submit">Submit Form</button>
+        <fieldset className="mx-2">
+          <label htmlFor="entry.547379319">合作方式或提案內容</label>
+          <textarea
+            type="text"
+            name="entry.547379319"
+            className="formInput"
+            required="true"
+            onChange={handleInputData}
+            value={formData["entry.547379319"]}
+            autoComplete={false}
+          />
+        </fieldset>
+        <button
+          type="submit"
+          className="myButton ml-2">
+          Submit Form
+        </button>
       </form>
     </div>
   );

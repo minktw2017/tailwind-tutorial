@@ -26,13 +26,16 @@ const Form2 = () => {
       items-start
       ">
       <div
-        className="  
+        className=" 
+        px-4 
         w-1/2    
         flex 
         justify-start
         items-start
         flex-col">
-        <form action="/">
+        <form
+          action="/"
+          className="w-full">
           <label
             className="formLabel"
             htmlFor="name">
@@ -82,7 +85,8 @@ const Form2 = () => {
         flex 
         justify-start
         items-start
-        flex-col">
+        flex-col
+        ">
         <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Input Value:</p>
         <p>
           <span className="w-4">Name:</span>

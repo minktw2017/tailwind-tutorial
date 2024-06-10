@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../componnents/Nav";
+import Spring from "../componnents/Spring";
 
 const Animation = () => {
   return (
@@ -15,7 +16,7 @@ const Animation = () => {
         items-center
         lg:max-w-[1200px]
         ">
-        <div className="w-full h-full bg-slate-400 mx-2">123</div>
+        <Spring />
       </div>
     </>
   );

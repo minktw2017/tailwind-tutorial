@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "yarn exec echo Keep it real! You can make it!! && vite build && sudo cp -r dist/* /var/www/doban",
+    "build": "yarn exec echo Keep it real! You can make it real!! && vite build && sudo cp -r dist/* /var/www/doban",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",

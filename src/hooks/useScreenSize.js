@@ -4,13 +4,7 @@ const useSceenSize = () => {
 
   const genImgNum = (width) => {
     let num;
-    // if (screenSize.width < 400) {
-    //   setImgNum(1);
-    // } else if (screenSize.width >= 400 && screenSize.width < 1200) {
-    //   setImgNum(2);
-    // } else {
-    //   setImgNum(3);
-    // };
+
     if (width < 432) {
       num = 1;
     } else if (width >= 432 && width < 1200) {
@@ -26,8 +20,6 @@ const useSceenSize = () => {
     height: window.innerHeight,
     imgNum: genImgNum(window.innerWidth)
   })
-
-  // const [imgNum, setImgNum] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {

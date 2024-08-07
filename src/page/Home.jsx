@@ -1,13 +1,11 @@
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
+import ColorPicke from "../components/ColorPicke";
 
 function Home() {
-    return (
-      <>
-        <Navbar/>
-        <Hero/>
-      </>
-    )
-  }
+  return (
+    <>
+      <ColorPicke />
+    </>
+  );
+}
 
-export default Home
+export default Home;

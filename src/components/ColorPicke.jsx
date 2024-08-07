@@ -14,7 +14,7 @@ const ColorPicke = () => {
     <>
       <div className="min-h-screen w-full">
         <div className="bgGradient absolute left-0 top-0 -z-20 min-h-screen w-full" />
-        <div className="bgSquare absolute left-[150px] top-[100px] -z-10" />
+        <div className="bgSquare bgSquareUp absolute left-[150px] -z-10" />
         <div>
           <HexColorPicker color={color} onChange={setColor} />
         </div>
